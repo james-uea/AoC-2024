@@ -1,10 +1,4 @@
 def check_data_safety(data):
-    # Convert all elements to integers
-    tmp_data = []
-    for element in data:
-        tmp_data.append(int(element))
-    data = tmp_data
-
     increasing = False # Decreasing by default
 
     # Check the first 2 elements to check if we're increasing or decreasing
@@ -16,14 +10,10 @@ def check_data_safety(data):
 
     for i in range(len(data) - 1):
         if increasing:
-            if not data[i] < data[i + 1]:
-                return False
-            elif data[i + 1] - data[i] > 3:
+            if not data[i] < data[i + 1] or data[i + 1] - data[i] > 3:
                 return False
         else:
-            if not data[i] > data[i + 1]:
-                return False
-            elif data[i] - data[i + 1] > 3:
+            if not data[i] > data[i + 1] or data[i] - data[i + 1] > 3:
                 return False
 
     return True
@@ -36,6 +26,12 @@ def main():
         for line in lines:
             line = line.strip()
             data = line.split()
+
+            # Convert all elements to integers
+            tmp_data = []
+            for element in data:
+                tmp_data.append(int(element))
+            data = tmp_data
 
             if check_data_safety(data): num_safe_entries += 1
 
