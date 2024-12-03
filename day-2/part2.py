@@ -32,23 +32,25 @@ def check_data_safety(data, do_iterative_search=True):
 def main():
     with open("input", "r") as f:
         lines = f.readlines()
-        num_safe_entries = 0
 
-        for line in lines:
-            line = line.strip()
-            data = line.split()
+    num_safe_entries = 0
 
-            # Convert all elements to integers
-            tmp_data = []
-            for element in data:
-                tmp_data.append(int(element))
-            data = tmp_data
+    for line in lines:
+        line = line.strip()
+        data = line.split()
 
-            if check_data_safety(data): num_safe_entries += 1
+        # Convert all elements to integers
+        tmp_data = []
+        for element in data:
+            tmp_data.append(int(element))
+        data = tmp_data
+
+        if check_data_safety(data): num_safe_entries += 1
 
 
         iterative_search([1, 2, 5, 6])
-        print(f"Total amount of safe entries: {num_safe_entries}")
+        
+    print(f"Total amount of safe entries: {num_safe_entries}")
 
 
 

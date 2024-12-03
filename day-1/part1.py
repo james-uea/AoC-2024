@@ -13,9 +13,10 @@ def main():
 
     with open("input", "r") as f:
         lines = f.readlines()
-        for line in lines:
-            line = line.strip()
-            parse_to_lists(left_list, right_list, line)
+        
+    for line in lines:
+        line = line.strip()
+        parse_to_lists(left_list, right_list, line)
 
     total_distance = 0
 
